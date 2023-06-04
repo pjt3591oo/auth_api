@@ -6,7 +6,7 @@ export enum Environment {
 }
 
 export enum EnvKey {
-  JWT_SECRET = 'JWT_SECRET',
+  JWT_KEY = 'JWT_KEY',
   NODE_ENV = 'NODE_ENV',
   PORT = 'PORT',
 

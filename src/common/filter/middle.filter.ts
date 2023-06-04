@@ -27,7 +27,7 @@ export class MiddleExceptionFilter implements ExceptionFilter {
       code: `${error.context as string}__${error.type as string}`,
       desc: error.message,
     });
-
+    console.log(error);
     host.switchToHttp().getResponse().status(HttpStatus.OK).json(failRes);
   }
 }
