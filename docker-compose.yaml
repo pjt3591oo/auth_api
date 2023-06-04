@@ -1,0 +1,32 @@
+version: "3" # 파일 규격 버전
+
+services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
+  db: # 서비스 명
+    image: mysql:8.0.33 # 사용할 이미지
+    container_name: db.auth.com # 컨테이너 이름 설정
+    ports:
+      - "3306:3306" # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+    environment: # -e 옵션
+      MYSQL_ROOT_PASSWORD: "password"  # MYSQL 패스워드 설정 옵션
+    command: # 명령어 실행
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
+  localstack:
+    container_name: localstack
+    environment:
+      - DEBUG=1
+      - LOCALSTACK_HOSTNAME=localhost
+      - TEST_AWS_ACCOUNT_ID=000000000000
+      - AWS_DEFAULT_REGION=us-west-1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - DATA_DIR=/tmp/localstack/data
+      - KINESIS_STREAM_SHARDS=1
+      - KINESIS_ERROR_PROBABILITY=0.0
+      - KINESIS_STREAM_NAME=kinesis-stream
+      - KINESIS_PROVIDER=kinesalite
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
