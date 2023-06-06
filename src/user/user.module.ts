@@ -8,12 +8,18 @@ import { Token } from './entities/token.entity';
 import { TokenBlacklist } from './entities/tokenBlacklist.entity';
 import { CryptoModule } from 'src/crypto/crypto.module';
 import { AuthModule } from 'src/auth/auth.module';
+import { TokenblacklistBackupExecute } from './provider/tokenblacklist-backup-execute';
+import { TokenblacklistBackupTaskService } from './tokenblacklist-backup-task.service';
+import { S3Upload } from 'src/s3/provider/s3-upload';
 
 @Module({
   imports: [DatabaseModule, CryptoModule, forwardRef(() => AuthModule)],
   controllers: [UserController],
   providers: [
     UserService,
+    TokenblacklistBackupExecute,
+    TokenblacklistBackupTaskService,
+    S3Upload,
     {
       provide: User,
       useFactory: (dataSource: DataSource) => dataSource.getRepository(User),

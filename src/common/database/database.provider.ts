@@ -18,7 +18,7 @@ export const databaseProviders = [
         password: config.get(EnvKey.DB_PASSWORD),
         entities: [path.resolve(`${__dirname}/../../**/**.entity{.ts,.js}`)],
         synchronize: true,
-        logging: false,
+        logging: true,
       });
 
       return dataSource.initialize();

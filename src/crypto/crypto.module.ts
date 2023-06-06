@@ -8,6 +8,6 @@ import { CryptoController } from './controller/crypto.controller';
   imports: [HttpModule],
   controllers: [CryptoController],
   providers: [KmsManager, CryptoManager],
-  exports: [CryptoManager],
+  exports: [CryptoManager, KmsManager],
 })
 export class CryptoModule {}

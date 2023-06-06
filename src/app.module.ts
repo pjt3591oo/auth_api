@@ -8,6 +8,8 @@ import { validate } from './common/env.validator';
 
 import * as path from 'path';
 import { DatabaseModule } from './common/database/database.module';
+import { CryptoCliModule } from './crypto/crypto-cli.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -17,9 +19,11 @@ import { DatabaseModule } from './common/database/database.module';
       validate,
       envFilePath: path.resolve(__dirname, '../.env'),
     }),
+    ScheduleModule.forRoot(),
     UserModule,
     AuthModule,
     CryptoModule,
+    CryptoCliModule,
   ],
   controllers: [],
   providers: [],
