@@ -172,7 +172,7 @@ iv: abcdef0123456789
 ```
 
 ```
-$ npm run cli:crypto -- -deakciaixnsowmfich12340987qwerplki
+$ npm run cli:crypto -- -de akciaixnsowmfich12340987qwerplki
 
 > auth_api@0.0.1 cli:crypto
 > ts-node -r tsconfig-paths/register src/cli.ts crypto -de akciaixnsowmfich12340987qwerplki
