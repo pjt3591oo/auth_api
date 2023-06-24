@@ -25,6 +25,9 @@ export enum EnvKey {
   AWS_DEFAULT_REGION = 'AWS_DEFAULT_REGION',
 
   AWS_KMS_KEY_ID = 'AWS_KMS_KEY_ID',
+
+  GITHUB_SECRETS = 'GITHUB_SECRETS',
+  GITHUB_CLIENT_ID = 'GITHUB_CLIENT_ID',
 }
 
 class EnvironmentVariables {
@@ -62,6 +65,11 @@ class EnvironmentVariables {
 
   @IsString()
   AWS_KMS_KEY_ID: string;
+
+  @IsString()
+  GITHUB_SECRETS: string;
+  @IsString()
+  GITHUB_CLIENT_ID: string;
 }
 
 export function validate(config: Record<string, unknown>) {

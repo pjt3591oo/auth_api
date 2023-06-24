@@ -11,6 +11,7 @@ import { JwtStrategy } from './provider/jwt.strategy';
 import { Token } from 'src/user/entities/token.entity';
 import { TokenBlacklist } from 'src/user/entities/tokenBlacklist.entity';
 import { CryptoModule } from 'src/crypto/crypto.module';
+import { AuthController } from './controller/auth.controller';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { CryptoModule } from 'src/crypto/crypto.module';
     }),
     CryptoModule,
   ],
+  controllers: [AuthController],
   providers: [
     TokenCreator,
     AuthService,

@@ -30,6 +30,10 @@ AWS_DEFAULT_REGION=us-east-1
 
 # AWS KMS 정보
 AWS_KMS_KEY_ID=2fc33296-0ede-4597-8b30-91a4f17bc664
+
+# 깃허브 oauth
+GITHUB_SECRETS=
+GITHUB_CLIENT_ID=
 ```
 
 * db, localstack 실행

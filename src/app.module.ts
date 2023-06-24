@@ -10,6 +10,7 @@ import * as path from 'path';
 import { DatabaseModule } from './common/database/database.module';
 import { CryptoCliModule } from './crypto/crypto-cli.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
@@ -20,6 +21,9 @@ import { ScheduleModule } from '@nestjs/schedule';
       envFilePath: path.resolve(__dirname, '../.env'),
     }),
     ScheduleModule.forRoot(),
+    ServeStaticModule.forRoot({
+      rootPath: path.resolve(__dirname, '..', 'client'),
+    }),
     UserModule,
     AuthModule,
     CryptoModule,
